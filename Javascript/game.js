@@ -1,1 +1,2 @@
-
+findRandomCode();
+createSpanStructure();
