@@ -1,2 +1,3 @@
-findRandomCode();
-createSpanStructure();
+codeArray(randomCode);
+typeCheck(splitArray);
+createSpanStructure(splitArray);
