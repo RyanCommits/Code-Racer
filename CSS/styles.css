@@ -7,3 +7,11 @@
   padding: 0 .1em;
   font-weight: bold;
 }
+.active{
+  color: white;
+  background-color: #ffc40d;
+  outline: 1px solid #f3b700;
+}
+pre span {
+  padding: .1em 0;
+}
