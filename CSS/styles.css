@@ -1,10 +1,13 @@
+pre {
+  color: #696954;
+}
 .correct {
-  color:red;
+  color:green;
 }
 .return:before {
   content: '\23CE';
   color:red;
-  padding: 0 .1em;
+  padding: .1em .4em;
   font-weight: bold;
 }
 .active{
