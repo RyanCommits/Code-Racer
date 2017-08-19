@@ -1,3 +1,9 @@
 .correct {
   color:red;
 }
+.return:before {
+  content: '\23CE';
+  color:red;
+  padding: 0 .1em;
+  font-weight: bold;
+}
