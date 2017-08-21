@@ -1,7 +1,8 @@
 // Grabs random code from the code list
 
 function findRandomCode () {
-  const codeList = ['f\nunction typing(e) {\n  typed=String.fromCharCode(e.which);\n  for(var i = 0; i &lt; spans.length; i++) {', 'public partial class CSharpCodeParser : TokenizerBackedParser<CSharpTokenizer, CSharpSymbol, CSharpSymbolType>\n{','var runtil = /Until$/,\n    rparentsprev = /^(?:parents|prev(?:Until|All))/,\n    isSimple = /^.[^:#\[\.,]*$/,\n    POS = jQuery.expr.match.globalPOS,    // methods guaranteed to produce a unique set when starting from a unique set\n    guaranteedUnique = {\n        children: true,\n        contents: true,\n        next: true,\n       prev: true\n    };']
+  const codeList = ['function createSpanStructure(splitArray) {\n  splitArray.forEach(function (character){\n    if (character == \'n\') {\n      $(\'<span class=\"before\"></span>\').appendTo(\'pre\');\n      $(\'span:last-of-type\').html(\'<br>\');\n    } else {\n      $(\'<span class="before"></span>\').appendTo(\'pre\');\n      $(\'span:last-of-type\').html(character);\n    }\n    $(\'span:first-of-type\').addClass(\'active\');']
+
   let randomNumber = Math.floor(Math.random() * codeList.length);
   let randomCode = codeList[randomNumber];
   return randomCode;
@@ -29,7 +30,7 @@ function createSpanStructure(splitArray) {
       $('<span class="before"></span>').appendTo('pre');
       $('span:last-of-type').html(character);
     }
-  $('span:first-of-type').addClass('active');
+  $('pre span:first-of-type').addClass('active');
   });
 }
 
@@ -77,10 +78,10 @@ function typeCheck(splitArray) {
 
     } else {
       $('.before').eq(i).addClass('incorrect');
+      $('.before').eq(i).removeClass('active');
       i++;
       $('.before').eq(i).addClass('active');
     }
-
   });
 }
 
@@ -92,9 +93,26 @@ function totalCorrect() {
     let incorrect = $('.incorrect').length;
     let accuracy = Math.round(correct * 10000/(correct+incorrect) / 100);
     if (isNaN(accuracy)) {
-      $('.accuracy').text('100%');
+      $('.accuracy').text('Accuracy: 100%');
     } else {
-      $('.accuracy').text(accuracy + "%");
+      $('.accuracy').text("Accuracy: " + accuracy + "%");
+    }
+  });
+}
+
+// 60 second countdown & report
+
+function countDown() {
+  $(document).one('keypress',function(event) {
+    if ($(".clock").text() === '60 seconds') {
+      var count = 5, timer = setInterval(function() {
+      $(".clock").html(count-- + " seconds");
+      if(count === -1) {
+        clearInterval(timer);
+        $('.accreport').text($('.accuracy').text());
+        $('#myModal').modal('show');
+        }
+      }, 1000);
     }
   });
 }
@@ -103,5 +121,4 @@ codeArray(randomCode);
 typeCheck(splitArray);
 createSpanStructure(splitArray);
 totalCorrect();
-
-//bug when incorrect up until return, then highlights gets messed up
+countDown();
