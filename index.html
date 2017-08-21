@@ -2,15 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Code Cadet</title>
+    <title>Code Race</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/styles.css">
   </head>
 
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      Code Cadet
-    </a>
+    <div class="container">
+      <div class="row">
+        <div class="navbar-header col-sm-2">
+          <a class="navbar-brand" href="#">
+          Code <div>Race</div>
+          </a>
+        </div>
+      </div>
+    </div>
   </nav>
 
   <body>
@@ -58,6 +64,9 @@
         <div class="col-sm-2">
             <div class="clock">60 seconds</div>
         </div>
+        <div class="col-sm-3">
+            <div class="speed">Characters Per Minute:</div>
+        </div>
       </div>
     </div>
 
@@ -72,12 +81,13 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-4"><div class="accreport"></div></div>
-                <div class="col-md-4 ml-auto">Characters per minute</div>
+                <div class="col-md-4 ml-auto"><div class="speedreport">
+                </div></div>
               </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -90,7 +100,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./Javascript/logic.js"></script>
     <script type="text/javascript" src="./Javascript/game.js"></script>
+      <!-- footer -->
+    <footer class="container-fluid footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>About</h3>
+            <p>Created with love by Ryan Wang</p>
+            <p>Ryan is currently writing Javascript at Ironhack, Miami.
+            Read his blog at:</p>
+            <a href="http://ryancommits.com/blog/">http://ryancommits.com/blog/</a>
+          </div>
+          <div class="col-sm-4">
+            <h3>Social</h3>
+              <a href="https://www.linkedin.com/in/ryancommits/"><img src="./images/linkedin.png" />LinkedIn</a>
+              <hr class="style-three" />
+              <a href="https://github.com/RyanCommits/"><img src="./images/mark-github.svg" />GitHub</a>
+              <hr class="style-three" />
+              <a href="http://ryancommits.com/">Portfolio</a>
+          </div>
+        </div><!-- row -->
+      </div><!-- container -->
+    </footer><!-- container -->
   </body>
-
-
 </html>

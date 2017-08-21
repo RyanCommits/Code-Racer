@@ -3,18 +3,27 @@ pre {
   background-color: #002b36;
   border: 5px solid #292929;
   margin-bottom: 0;
+  height: 400px;
 
 }
 body {
-  background-color: #fdf6e3;
+  background-color: #f8f9fa;
 }
 /*nav bar*/
-.navbar-brand {
+.navbar-light .navbar-brand {
   color: #002b36;
+  font-weight: bold;
   font-size: 2rem;
-  margin-left: 2rem;
+  letter-spacing: -.7px;
+  word-spacing: -2px;
 }
-
+.navbar-brand div {
+  color: green;
+  display: inline;
+}
+.navbar .row {
+  width: 100%;
+}
 /*window tabs*/
 .tabs {
   position: relative;
@@ -114,6 +123,28 @@ pre span {
 .statistics{
   background-color: #292929;
 }
-.accuracy, .clock{
+.accuracy,.clock, .speed{
   color: white;
+  font-size: 18px;
+}
+
+/*footer*/
+footer {
+  padding: 30px 0;
+  font-size: 14px;
+  color: white;
+  margin-top: 200px;
+  background-color: #292929;
+}
+footer h3 {
+  color: #268bd2;
+  font-size: 22px;
+}
+footer a {
+  color: #93a1a1;
+}
+footer img {
+  margin-right: 10px;
+  position: relative;
+  bottom: 2px;
 }

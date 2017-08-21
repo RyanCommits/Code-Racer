@@ -103,20 +103,31 @@ function totalCorrect() {
 // 60 second countdown & report
 
 function countDown() {
+  let count = 0;
   $(document).one('keypress',function(event) {
-    if ($(".clock").text() === '60 seconds') {
-      var count = 5, timer = setInterval(function() {
-      $(".clock").html(count-- + " seconds");
-      if(count === -1) {
-        clearInterval(timer);
-        $('.accreport').text($('.accuracy').text());
-        $('#myModal').modal('show');
-        }
-      }, 1000);
-    }
+    var seconds = 60, timer = setInterval(function() {
+    $(".clock").html(seconds-- + " seconds");
+    count++;
+    charPerMin(count);
+    if(seconds === -1) {
+      clearInterval(timer);
+      $('.accreport').text($('.accuracy').text());
+      $('#myModal').modal('show');
+      }
+    }, 1000);
   });
 }
 
+// characters per minute
+
+function charPerMin(count) {
+  let charTyped = $('.correct').length;
+  let speed = Math.round(charTyped / count * 60);
+  $('.speed').text("Characters Per Minute: " + speed);
+  $('.speedreport').text($('.speed').text());
+}
+
+// winning modal
 codeArray(randomCode);
 typeCheck(splitArray);
 createSpanStructure(splitArray);
