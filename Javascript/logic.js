@@ -41,11 +41,11 @@ function typeCheck(splitArray) {
 // backspace function
   $(document).keydown(function(event) {
       if (event.which === 8 && i > 0) {
-      $('.before').eq(i).removeClass('incorrect');
       $('.before').eq(i).removeClass('active');
       $('.before').eq(i).removeClass('correct');
       i--;
       $('.before').eq(i).addClass('active');
+      $('.before').eq(i).removeClass('incorrect');
     }
   });
 
@@ -77,62 +77,31 @@ function typeCheck(splitArray) {
 
     } else {
       $('.before').eq(i).addClass('incorrect');
+      i++;
+      $('.before').eq(i).addClass('active');
     }
 
   });
 }
 
-// Calculates total correct
-function totalCorrect(splitArray) {
-  let correct = 0;
-  let i = 0;
-  let incorrect =0;
+// Calculates accuracy of input
+function totalCorrect() {
 
-  // backspace function
   $(document).keydown(function(event) {
-    if (event.which === 8 && i > 0) {
-      i--;
-      correct--;
-    }
-  });
-
-  $(document).keypress(function(event) {
-    let typed = String.fromCharCode(event.which);
-    if (typed == splitArray[i]) {
-      correct++;
-      i++;
-    } else if (event.which === 13 && splitArray[i] === '\n') {
-      correct++;
-      i++;
-    } else {
-      incorrect++;
-    }
+    let correct = $('.correct').length;
+    let incorrect = $('.incorrect').length;
     let accuracy = Math.round(correct * 10000/(correct+incorrect) / 100);
-    $('.accuracy').text(accuracy + "%");
+    if (isNaN(accuracy)) {
+      $('.accuracy').text('100%');
+    } else {
+      $('.accuracy').text(accuracy + "%");
+    }
   });
 }
 
-var correct = 50;
-
-// takes total correct, calculate incorrect, and returns accuracy
-
-// function accuracy(correct) {
-//   let incorrect = 0;
-//   let i = 0;
-//   var x = 0;
-//   $(document).keypress(function(event) {
-//     let typed = String.fromCharCode(event.which);
-//     if (typed != splitArray[i] && event.which !== 13 && splitArray[i] !== '\n') {
-//       incorrect++;
-//     } else {
-//       i++;
-//     }
-//   x = correct/(correct+incorrect) * 100;
-//   console.log(x);
-//   return x;
-//   });
-// }
 codeArray(randomCode);
 typeCheck(splitArray);
 createSpanStructure(splitArray);
-totalCorrect(splitArray);
+totalCorrect();
+
+//bug when incorrect up until return, then highlights gets messed up
