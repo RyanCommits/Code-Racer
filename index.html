@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Code Race</title>
+    <title>minute coder</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Changa+One" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/styles.css">
   </head>
 
@@ -12,7 +13,7 @@
       <div class="row">
         <div class="navbar-header col-sm-2">
           <a class="navbar-brand" href="#">
-          Code <div>Race</div>
+            minute<div>coder</div>
           </a>
         </div>
       </div>
@@ -20,56 +21,67 @@
   </nav>
 
   <body>
-    <div class="container-fluid text-center">
-      <h1>60 Second Challenge</h1>
+    <div class="container-fluid text-center title">
+      <h1>60 Second Challenge!</h1>
       <h2>Can you code 10 lines in 60 seconds?</h2>
     </div>
     <div class="container">
-      <div class = "tabjs">
-      <img src="./images/javascript-icon.png" />
-      <img class="closeiconjs" src="./images/close.png" />
-      </div>
-      <div class = "tabindex">
-      <img src="./images/html.png" />
-      <img class="closeicon" src="./images/close.png" />
-      </div>
 
-      <div class="tabs">
-        <div class="tab"><div class="tab-box"></div></div>
-        <div class="tab"><div class="tab-box activetab"></div></div>
+<!-- Choose language -->
+      <div class="language">
+        <h2>Choose your language</h2>
+        <button class="btn btn-primary btn-lg active htmlinit" role="button" aria-pressed="true">HTML</button>
+        <button class="btn btn-primary btn-lg active cssinit" role="button" aria-pressed="true">CSS</button>
+        <button class="btn btn-primary btn-lg active jsinit" role="button" aria-pressed="true">Javascript</button>
       </div>
-      <div class="row">
-        <div class="col-sm-1">
-          <p id="first">1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
-          <p>5</p>
-          <p>6</p>
-          <p>7</p>
-          <p>8</p>
-          <p>9</p>
-          <p>10</p>
+      <div class="console hide">
+        <div class = "tabjs">
+        <img src="./images/javascript-icon.png" />
+        <img class="closeiconjs" src="./images/close.png" />
         </div>
-        <div class="col-sm-11">
-          <pre></pre>
+        <div class = "tabindex">
+        <img src="./images/html.png" />
+        <img class="closeicon" src="./images/close.png" />
+        </div>
+
+        <div class="tabs">
+          <div class="tab"><div class="tab-box activetab"></div></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-1">
+            <p id="first">1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+            <p>7</p>
+            <p>8</p>
+            <p>9</p>
+            <p>10</p>
+          </div>
+          <div class="col-sm-11">
+            <pre></pre>
+          </div>
+        </div>
+        <div class="container statistics">
+          <div class="row">
+            <div class="col-sm-2">
+                <div class="errors">Errors: 0</div>
+            </div>
+            <div class="col-sm-3">
+                <div class="accuracy">Accuracy: 100%</div>
+            </div>
+            <div class="col-sm-2">
+                <div class="clock">60 seconds</div>
+            </div>
+            <div class="col-sm-4">
+                <div class="speed">Characters Per Minute:</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row statistics">
-        <div class="col-sm-2">
-            <div class="accuracy">Accuracy: 100%</div>
-        </div>
-        <div class="col-sm-2">
-            <div class="clock">60 seconds</div>
-        </div>
-        <div class="col-sm-3">
-            <div class="speed">Characters Per Minute:</div>
-        </div>
-      </div>
-    </div>
-
     <!-- Finish Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -88,6 +100,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary restart" data-dismiss="modal">Restart</button>
           </div>
         </div>
       </div>

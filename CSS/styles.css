@@ -4,12 +4,24 @@ pre {
   border: 5px solid #292929;
   margin-bottom: 0;
   height: 400px;
-
 }
 body {
   background-color: #f8f9fa;
 }
+h1{
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+}
+h2{
+  font-family: 'Roboto', sans-serif;
+}
+.title{
+  margin-bottom: 50px;
+}
 /*nav bar*/
+.navbar {
+  margin-bottom: 50px;
+}
 .navbar-light .navbar-brand {
   color: #002b36;
   font-weight: bold;
@@ -24,11 +36,23 @@ body {
 .navbar .row {
   width: 100%;
 }
+/*language buttons */
+.language {
+  margin: 0 auto;
+  width: 330px;
+}
+.hide{
+  display: none;
+}
+
 /*window tabs*/
+.row {
+  margin:0;
+}
 .tabs {
   position: relative;
   top: 10px;
-  right: 16px;
+  right: 2px;
   height:45px;
   overflow:visible;
   z-index: 1;
@@ -59,14 +83,16 @@ body {
 .tabindex {
   position: relative;
   top: 40px;
-  left: 6px;
+  left: 1px;
   z-index: 2;
+  display:none;
 }
 .tabjs {
   position: relative;
   top: 65px;
   left: 190px;
   z-index: 2;
+  display: none;
 }
 .closeicon {
   margin-left: 60px;
@@ -123,7 +149,7 @@ pre span {
 .statistics{
   background-color: #292929;
 }
-.accuracy,.clock, .speed{
+.accuracy,.clock, .speed, .errors{
   color: white;
   font-size: 18px;
 }
@@ -137,7 +163,7 @@ footer {
   background-color: #292929;
 }
 footer h3 {
-  color: #268bd2;
+  color: #f29519;
   font-size: 22px;
 }
 footer a {
