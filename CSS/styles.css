@@ -219,3 +219,11 @@ footer img {
   position: relative;
   bottom: 2px;
 }
+/*buttons */
+.results {
+  background: #292929;
+  color: white;
+}
+.restart {
+  background: green;
+}

@@ -19,7 +19,7 @@ function findCSSCode () {
 // Generates random JS code
 
 function findJsCode () {
-  const codeList = ['function createSpanStructure(splitArray) {\n  splitArray.forEach(function (character){\n    if (character == \'n\') {\n      $(\'<span class=\"before\"></span>\').appendTo(\'pre\');\n      $(\'span:last-of-type\').html(\<br>\);\n    } else {\n      $(\'<span class=\"before\"></span>\').appendTo(\'pre\');\n      $(\'span:last-of-type\').html(character);\n    }\n    $(\'span:first-of-type\').addClass(\'active\')\;', 'function typeCheck(splitArray) {\n  let i = 0;\n  let error = 0;\n  $(document).keydown(function(event) {\n    if(event.which === 8 && i > 0) {\n    $(\'.before\').eq(i).removeClass(\'active\');\n    $(\'.before\').eq(i).removeClass(\'correct\');\n    i--;\n    $(\'.before\').eq(i).addClass(\'active\');\n    $(\'.before\').eq(i).addClass(\'active\');', `$(document).keypress(function(event) {\n  let typed = String.fromCharCode(event.which);\n  totalCorrect(error);\n//prevents space from scrolling\n  if (event.which == 32){\n    event.preventDefault();\n  }\n  if (typed == splitArray[i]) {\n    $('.before').eq(i).removeClass('incorrect');\n    $('.before').eq(i).removeClass('active');`, `else if (event.which === 13 && splitArray[i] === '\\n' ) {\n  $('.before').eq(i).removeClass('incorrect');\n  $('.before').eq(i).removeClass('active');\n  $('.before').eq(i).removeClass('return');\n  $('.before').eq(i).addClass('correct');\n  i += 1;\n  while (splitArray[i] === ' ')\n  i++;\n  $('.before').eq(i).addClass('active');\n  } else {`, `// Calculates accuracy of input\nfunction totalCorrect(error) {\n  $(document).keydown(function(event) {\n    let correct = $('.correct').length;\n    let accuracy = Math.round(correct * 10000/(correct+error) / 100);\n    if (isNaN(accuracy)) {\n      $('.accuracy').text('Accuracy: 100%');\n    } else {\n      $('.accuracy').text("Accuracy: " + accuracy + "%");\n    }`, `function countDown() {\n  let count = 0;\n  $(document).one('keypress',function(event) {\n    var seconds = 60, timer = setInterval(function() {\n    $(".clock").html(seconds-- + " seconds");\n    count++;\n    charPerMin(count);\n    if(seconds === -1) {\n      clearInterval(timer);\n      $('.accreport').text($('.accuracy').text());`, `function charPerMin(count) {\n  let charTyped = $('.correct').length;\n  let speed = Math.round(charTyped / count * 60);\n  $('.speed').text("Characters Per Minute: " + speed);\n  $('.speedreport').text($('.speed').text());\n}\n// Modal reloads page\n$(document).ready(function () {\n  $('.restart').click(function () {\n    location.reload();`, `// buttons chooses language\n$(document).ready(function () {\n  $('.jsinit').click(function () {\n    $( ".language" ).toggleClass( "hide" )\n    $( ".console" ).toggleClass( "hide" )\n    codeArray(randomCode);\n    typeCheck(splitArray);\n    createSpanStructure(splitArray);\n    countDown();\n  });`]
+  const codeList = ['function createSpanStructure(splitArray) {\n  splitArray.forEach(function (character){\n    if (character == \'n\') {\n      $(\'<span class=\"before\"></span>\').appendTo(\'pre\');\n      $(\'span:last-of-type\').html(\<br>\);\n    } else {\n      $(\'<span class=\"before\"></span>\').appendTo(\'pre\');\n      $(\'span:last-of-type\').html(character);\n    }\n    $(\'span:first-of-type\').addClass(\'active\')\;', 'function typeCheck(splitArray) {\n  let i = 0;\n  let error = 0;\n  $(document).keydown(function(event) {\n    if(event.which === 8 && i > 0) {\n    $(\'.before\').eq(i).removeClass(\'active\');\n    $(\'.before\').eq(i).removeClass(\'correct\');\n    i--;\n    $(\'.before\').eq(i).addClass(\'active\');\n    $(\'.before\').eq(i).addClass(\'active\');', `$(document).keypress(function(event) {\n  let typed = String.fromCharCode(event.which);\n  totalCorrect(error);\n//prevents space from scrolling\n  if (event.which == 32){\n    event.preventDefault();\n  }\n  if (typed == splitArray[i]) {\n    $('.before').eq(i).removeClass('incorrect');\n    $('.before').eq(i).removeClass('active');`, `else if (event.which === 13 && splitArray[i] === '\\n' ) {\n  $('.before').eq(i).removeClass('incorrect');\n  $('.before').eq(i).removeClass('active');\n  $('.before').eq(i).removeClass('return');\n  $('.before').eq(i).addClass('correct');\n  i += 1;\n  while (splitArray[i] === ' ')\n  i++;\n  $('.before').eq(i).addClass('active');\n  } else {`, `// Calculates accuracy of input\nfunction totalCorrect(error) {\n  $(document).keydown(function(event) {\n    let correct = $('.correct').length;\n    let accuracy = Math.round(correct * 10000/(correct+error) / 100);\n    if (isNaN(accuracy)) {\n      $('.accuracy').text('Accuracy: 100%');\n    } else {\n      $('.accuracy').text("Accuracy: " + accuracy + "%");\n    }`, `function countDown() {\n  let count = 0;\n  $(document).one('keypress',function(event) {\n    var seconds = 60, timer = setInterval(function() {\n    $(".clock").html(seconds-- + " seconds");\n    count++;\n    charPerMin(count);\n    if(seconds === -1) {\n      clearInterval(timer);\n      $('.accreport').text($('.accuracy').text());`, `function charPerMin(count) {\n  let charTyped = $('.correct').length;\n  let speed = Math.round(charTyped / count * 60);\n  $('.speed').text("Characters Per Minute: " + speed);\n  $('.speedreport').text($('.speed').text());\n}\n// Modal reloads page\n$(document).ready(function () {\n  $('.restart').click(function () {\n    location.reload();`, `// buttons chooses language\n$(document).ready(function () {\n  $('.jsinit').click(function () {\n    $(".language").toggleClass("hide")\n    $(".console").toggleClass("hide")\n    codeArray(randomCode);\n    typeCheck(splitArray);\n    createSpanStructure(splitArray);\n    countDown();\n  });`]
 
   let randomNumber = Math.floor(Math.random() * codeList.length);
   let randomCode = codeList[randomNumber];
@@ -95,15 +95,14 @@ function typeCheck(splitArray) {
       while (splitArray[i] === ' ')
       i++;
       $('.before').eq(i).addClass('active');
-
-    } else {
+    }
+// counts character errors;
+    else if (!$('span:last-of-type').hasClass('incorrect') && !$('span:last-of-type').hasClass('correct')){
       $('.before').eq(i).addClass('incorrect');
       $('.before').eq(i).removeClass('active');
+      error++;
       i++;
       $('.before').eq(i).addClass('active');
-
-// counts character errors;
-      error++;
       $('.errors').text('Errors: ' + error);
     }
   });
@@ -132,6 +131,7 @@ function countDown() {
 
 // stops game if player finishes
     if ($('span:last-of-type').hasClass('incorrect') || $('span:last-of-type').hasClass('correct')) {
+        $( ".results" ).toggleClass( "hide" )
         $('.accreport').text($('.accuracy').text());
         speedPerMin(speed);
         $('#exampleModalLabel').text("Finish!");
@@ -142,6 +142,7 @@ function countDown() {
 // stops game if time runs out
     if(seconds === -1) {
       clearInterval(timer);
+      $( ".results" ).toggleClass( "hide" )
       $('.accreport').text($('.accuracy').text());
       $('#myModal').modal('show');
       speedPerMin(speed);

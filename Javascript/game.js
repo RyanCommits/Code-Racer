@@ -46,28 +46,33 @@ $(document).one('keypress',function(event) {
 $('.btn-danger').click(function () {
 $('.btn-danger').popover('toggle');
 });
-
+//results button toggle
+$(document).ready(function () {
+  $('.results').click(function () {
+    $('#myModal').modal('show');
+  });
+});
 // Finish report
 function speedPerMin(speed) {
-  if(speed <= 199) {
-    $('.rank').text("Your rank: noob.");
-    $('.nextrank').text("Next rank at at 200 CPM");
+  if(speed <= 149) {
+    $('.rank').text("Your rank: Noob.");
+    $('.nextrank').text("Next rank at 150 CPM");
     $('.rankgif').attr('src', './images/noob.gif');
-  } else if (speed <= 239) {
+  } else if (speed <= 169) {
     $('.rank').text("Your rank: Grandpa calling IT support.");
-    $('.nextrank').text("Next rank at 240 CPM");
+    $('.nextrank').text("Next rank at 170 CPM");
     $('.rankgif').attr('src', './images/grandpa.gif');
-  } else if (speed <= 279) {
+  } else if (speed <= 199) {
     $('.rank').text("Your rank: Average Joe being average.");
-    $('.nextrank').text("Next rank at 280 CPM");
+    $('.nextrank').text("Next rank at 200 CPM");
     $('.rankgif').attr('src', './images/notgood.gif');
-  } else if (speed <= 329) {
+  } else if (speed <= 229) {
     $('.rank').text("Your rank: Looking somewhat busy.");
-    $('.nextrank').text("Next rank at 330 CPM");
+    $('.nextrank').text("Next rank at 230 CPM");
     $('.rankgif').attr('src', './images/busy.gif');
-  } else if (speed <= 399) {
+  } else if (speed <= 249) {
     $('.rank').text("Your rank: Jim Carrey in that one movie.");
-    $('.nextrank').text("Next rank at 400 CPM");
+    $('.nextrank').text("Next rank at 250 CPM");
     $('.rankgif').attr('src', './images/jim.gif');
   } else {
     $('.rank').text("Your rank: Korean gamer playing StarCraft.");
