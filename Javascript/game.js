@@ -2,6 +2,7 @@
 $(document).ready(function () {
   $('.jsinit').click(function () {
     $( ".language" ).toggleClass( "hide" )
+    $( ".tabjs" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
     $( ".title h2" ).toggleClass( "hide" )
     $(".title h1").html("You have 60 seconds");
@@ -12,6 +13,7 @@ $(document).ready(function () {
   });
   $('.cssinit').click(function () {
     $( ".language" ).toggleClass( "hide" )
+    $( ".tabcss" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
     $( ".title h2" ).toggleClass( "hide" )
     $(".title h1").html("You have 60 seconds");
@@ -22,6 +24,7 @@ $(document).ready(function () {
   });
   $('.htmlinit').click(function () {
     $( ".language" ).toggleClass( "hide" )
+    $( ".tabindex" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
     $( ".title h2" ).toggleClass( "hide" )
     $(".title h1").html("You have 60 seconds");

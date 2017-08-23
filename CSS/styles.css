@@ -101,22 +101,38 @@ h2{
   top: 40px;
   left: 1px;
   z-index: 2;
-  display:none;
 }
-.tabjs {
+.tabjs, .tabindex, .tabcss {
   position: relative;
-  top: 65px;
-  left: 190px;
+  top: 41px;
+  left: 18px;
   z-index: 2;
-  display: none;
+}
+.index{
+  color:white;
+  display: inline-block;
+  font-size: 14px;
+  margin: 0;
+}
+.tabindex .html {
+  width: 23px;
+}
+.tabjs .html {
+  width: 14px;
+  margin-right: 3px;
+}
+.tabcss .html {
+  width: 20px;
 }
 .closeicon {
-  margin-left: 60px;
+  margin-left: 47px;
 }
 .closeiconjs {
-  margin-left: 41px;
+  margin-left: 55px;
 }
-
+.closeiconcss {
+  margin-left: 55px;
+}
 /* end of tabs*/
 
 /* window bootstrap alignments, primarily for line counter*/
