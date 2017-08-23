@@ -47,6 +47,7 @@ function createSpanStructure(splitArray) {
     }
   $('pre span:first-of-type').addClass('active');
   });
+  $('<i class="return before lastreturn"></i>').appendTo('pre');
 }
 
 // checks user input
@@ -125,14 +126,29 @@ function countDown() {
   let count = 0;
   $(document).one('keypress',function(event) {
     var seconds = 60, timer = setInterval(function() {
-    $(".clock").html(seconds-- + " seconds");
+    $(".title h1").html("You have "+ seconds-- + " seconds");
     count++;
-    charPerMin(count);
+    let speed = charPerMin(count);
+
+// stops game if player finishes
+    if ($('span:last-of-type').hasClass('incorrect') || $('span:last-of-type').hasClass('correct')) {
+        $('.accreport').text($('.accuracy').text());
+        speedPerMin(speed);
+        $('#exampleModalLabel').text("Finish!");
+        $('h1').text("Finish!");
+        $('#myModal').modal('show');
+      }
+
+// stops game if time runs out
     if(seconds === -1) {
       clearInterval(timer);
       $('.accreport').text($('.accuracy').text());
       $('#myModal').modal('show');
-      }
+      speedPerMin(speed);
+      $('#exampleModalLabel').text("You tried...");
+    } else if ($('span:last-of-type').hasClass('incorrect') || $('span:last-of-type').hasClass('correct')) {
+      clearInterval(timer);
+    }
     }, 1000);
   });
 }
@@ -144,43 +160,8 @@ function charPerMin(count) {
   let speed = Math.round(charTyped / count * 60);
   $('.speed').text("Characters Per Minute: " + speed);
   $('.speedreport').text($('.speed').text());
+  return speed;
 }
-
-// Modal reloads page
-$(document).ready(function () {
-  $('.restart').click(function () {
-    location.reload();
-  });
-});
-
-
-// buttons chooses language
-$(document).ready(function () {
-  $('.jsinit').click(function () {
-    $( ".language" ).toggleClass( "hide" )
-    $( ".console" ).toggleClass( "hide" )
-    codeArray(randomCode);
-    typeCheck(splitArray);
-    createSpanStructure(splitArray);
-    countDown();
-  });
-  $('.cssinit').click(function () {
-    $( ".language" ).toggleClass( "hide" )
-    $( ".console" ).toggleClass( "hide" )
-    codeArray(csCode);
-    typeCheck(cssArray);
-    createSpanStructure(cssArray);
-    countDown();
-  });
-  $('.htmlinit').click(function () {
-    $( ".language" ).toggleClass( "hide" )
-    $( ".console" ).toggleClass( "hide" )
-    codeArray(htmlCode);
-    typeCheck(htmlArray);
-    createSpanStructure(htmlArray);
-    countDown();
-  });
-});
 
 var csCode = findCSSCode();
 var randomCode = findJsCode();

@@ -41,10 +41,26 @@ h2{
   margin: 0 auto;
   width: 330px;
 }
+.language p {
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  margin-right: 10px;
+}
+.language > div{
+  margin-top: 70px;
+  margin-left: 20px;
+}
 .hide{
   display: none;
 }
-
+/* instructions */
+.btn-lg {
+  font-size: 1rem;
+}
+.btn-danger {
+  background-color: #292929;
+}
 /*window tabs*/
 .row {
   margin:0;
@@ -124,6 +140,29 @@ h2{
 }
 
 /*code styles*/
+.start {
+  position: relative;
+  left: 110px;
+  bottom: 70px;
+  color: #b58900;
+}
+.blinker {
+  animation-name: blinker;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1,0,0,1);
+  animation-duration: 1s;
+  display: inline-block;
+  width: 3px;
+  height: 15px;
+  margin-right: 10px;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(white,.3);
+  background: #b58900;
+}
+
+@keyframes blinker {
+  from { opacity: 1.0; } to { opacity: 0.0; }
+}
 .correct {
   color: #93a1a1;
 }
@@ -153,13 +192,19 @@ pre span {
   color: white;
   font-size: 18px;
 }
-
+.rankgif {
+  width:100%;
+}
+.rank {
+  font-size: 1.4rem;
+  margin: 20px 0;
+}
 /*footer*/
 footer {
   padding: 30px 0;
   font-size: 14px;
   color: white;
-  margin-top: 200px;
+  margin-top: 100px;
   background-color: #292929;
 }
 footer h3 {
