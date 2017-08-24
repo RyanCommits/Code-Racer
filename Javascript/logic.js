@@ -9,7 +9,7 @@ function findHTMLCode () {
 
 // Generates random CSS code
 function findCSSCode () {
-  const codeList = ['pre {\n  color: #fdf6e3;\n  background-color: #002b36;\n  border: 5px solid #292929;\n  margin-bottom: 0;\n  height: 400px;\n}\n  body {\n  background-color: #f8f9fa;\n}'];
+  const codeList = ['pre {\n  color: #fdf6e3;\n  background-color: #002b36;\n  border: 5px solid #292929;\n  margin-bottom: 0;\n  height: 400px;\n}\n  body {\n  background-color: #f8f9fa;\n}', `/*nav bar*/\n.navbar {\n  margin-bottom: 50px;\n}\n.navbar-light .navbar-brand {\n  color: #002b36;\n  font-weight: bold;\n  font-size: 2rem;\n  letter-spacing: -.7px;\n  word-spacing: -2px;`, `.navbar-brand div {\n  color: green;\n  display: inline;\n}\n.navbar .row {\n  width: 100%;\n}\n/*language buttons */\n.language {\n  margin: 0 auto;`, `.language p {\n  display: inline-block;\n  font-family: 'Roboto', sans-serif;\n  font-size: 1.25rem;\n  margin-right: 10px;\n}\n.language > div{\n  margin-top: 70px;\n  margin-left: 20px;\n}`, `/* instructions */\n.btn-lg {\n  font-size: 1rem;\n}\n.btn-danger {\n  background-color: #292929;\n}\n/*window tabs*/\n.row {\n  margin:0;`, `.tabs {\n  position: relative;\n  top: 10px;\n  right: 2px;\n  height:45px;\n  overflow:visible;\n  z-index: 1;\n}\n.tab {\n  width:200px;`, `.tab-box {\n  height:36px;\n  background: #292929;\n  border-radius: 1px;\n  border:1px solid #484848;\n  margin:0 10px 0;\n  color: white;\n  -webkit-transform: perspective(100px) rotateX(30deg);\n  -moz-transform: perspective(100px) rotateX(30deg);\n}`, `.tab .activetab {\n  border-bottom: 1px solid #292929;\n}\n.tabindex {\n  position: relative;\n  top: 40px;\n  left: 1px;\n  z-index: 2;\n}\n.tabjs, .tabindex, .tabcss {`, `.index{\n  color: white;\n  display: inline-block;\n  font-size: 14px;\n  margin: 0;\n}\n.tabindex .html {\n  width: 23px;\n}\n.tabjs .html {`,`/* window bootstrap alignments, primarily for line counter*/\n.col-sm-1 {\n  background-color: #1e404b;\n  padding: 0;\n  margin: 0;\n}\n.col-sm-11 {\n  margin: 0;\n  padding:0;\n}`, `/*code styles*/\n.start {\n  position: relative;\n  left: 110px;\n  bottom: 70px;\n  color: #b58900;\n}\n.blinker {\n  animation-name: blinker;\n  animation-iteration-count: infinite;`, `@keyframes blinker {\n  from { opacity: 1.0; } to { opacity: 0.0; }\n}\n.correct {\n  color: #93a1a1;\n}\n.return:before {\n  content: '\\23CE';\n  color: #fdf6e3;\n  padding: .1em .4em;`, `.active{\n  color: white;\n  background-color: #b58900;\n}\npre span {\n  padding: .1em 0;\n  font-size: 16px;\n}\n.incorrect{\n  background-color: #dc322f;`];
 
   let randomNumber = Math.floor(Math.random() * codeList.length);
   let randomCode = codeList[randomNumber];
@@ -70,6 +70,10 @@ function typeCheck(splitArray) {
   $(document).keypress(function(event) {
     let typed = String.fromCharCode(event.which);
     totalCorrect(error);
+    $("#mysoundclip")[0].currentTime = 0;
+    $("#mysoundclip")[0].play();
+
+
 //prevents space from scrolling
     if (event.which == 32){
       event.preventDefault();
@@ -100,6 +104,7 @@ function typeCheck(splitArray) {
     else if (!$('span:last-of-type').hasClass('incorrect') && !$('span:last-of-type').hasClass('correct')){
       $('.before').eq(i).addClass('incorrect');
       $('.before').eq(i).removeClass('active');
+      mistakes(i);
       error++;
       i++;
       $('.before').eq(i).addClass('active');
@@ -164,6 +169,35 @@ function charPerMin(count) {
   return speed;
 }
 
+// most common error
+function mistakes(i) {
+  mistakeArray.push($('.before').eq(i).text());
+
+  var modeMap = {};
+    var maxEl = mistakeArray[0], maxCount = 1;
+    for(var x = 0; x < mistakeArray.length; x++)
+    {
+        var el = mistakeArray[x];
+        if(modeMap[el] == null)
+            modeMap[el] = 1;
+        else
+            modeMap[el]++;
+        if(modeMap[el] > maxCount)
+        {
+            maxEl = el;
+            maxCount = modeMap[el];
+        }
+    }
+
+    if (maxEl === " ") {
+      $('.commonerror').text('Most common error: space bar' );
+    } else {
+      $('.commonerror').text('Most common error: \"' + maxEl + '\"' );
+    }
+}
+
+
+var mistakeArray = [];
 var csCode = findCSSCode();
 var randomCode = findJsCode();
 var htmlCode = findHTMLCode();

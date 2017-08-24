@@ -4,7 +4,7 @@ $(document).ready(function () {
     $( ".language" ).toggleClass( "hide" )
     $( ".tabjs" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
-    $( ".title h2" ).toggleClass( "hide" )
+    $( ".title h2" ).html( "Type when you're ready..." )
     $(".title h1").html("You have 60 seconds");
     codeArray(randomCode);
     typeCheck(splitArray);
@@ -15,7 +15,7 @@ $(document).ready(function () {
     $( ".language" ).toggleClass( "hide" )
     $( ".tabcss" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
-    $( ".title h2" ).toggleClass( "hide" )
+    $( ".title h2" ).html( "Type when you're ready..." )
     $(".title h1").html("You have 60 seconds");
     codeArray(csCode);
     typeCheck(cssArray);
@@ -26,7 +26,7 @@ $(document).ready(function () {
     $( ".language" ).toggleClass( "hide" )
     $( ".tabindex" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
-    $( ".title h2" ).toggleClass( "hide" )
+    $( ".title h2" ).html( "Type when you're ready..." )
     $(".title h1").html("You have 60 seconds");
     codeArray(htmlCode);
     typeCheck(htmlArray);
@@ -43,6 +43,7 @@ $(document).ready(function () {
 
 $(document).one('keypress',function(event) {
   $('.start').addClass('hide');
+  $( ".title h2" ).addClass( "disappear" );
 });
 
 // instructions toggle

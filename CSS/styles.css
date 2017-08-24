@@ -51,6 +51,9 @@ h2{
   margin-top: 70px;
   margin-left: 20px;
 }
+.disappear {
+  visibility: hidden;
+}
 .hide{
   display: none;
 }
@@ -88,10 +91,8 @@ h2{
   border:1px solid #484848;
   margin:0 10px 0;
   color: white;
-
- -webkit-transform: perspective(100px) rotateX(30deg);
- -moz-transform: perspective(100px) rotateX(30deg);
-
+  -webkit-transform: perspective(100px) rotateX(30deg);
+  -moz-transform: perspective(100px) rotateX(30deg);
 }
 .tab .activetab {
   border-bottom: 1px solid #292929;
@@ -109,7 +110,7 @@ h2{
   z-index: 2;
 }
 .index{
-  color:white;
+  color: white;
   display: inline-block;
   font-size: 14px;
   margin: 0;
@@ -242,4 +243,9 @@ footer img {
 }
 .restart {
   background: green;
+}
+/*modal style*/
+.commonerror {
+  position: relative;
+  left: 50px;
 }
