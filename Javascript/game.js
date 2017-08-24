@@ -1,6 +1,7 @@
 // buttons chooses language
 $(document).ready(function () {
   $('.jsinit').click(function () {
+    mode = 'js';
     $( ".language" ).toggleClass( "hide" )
     $( ".tabjs" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
@@ -12,6 +13,7 @@ $(document).ready(function () {
     countDown();
   });
   $('.cssinit').click(function () {
+    mode = 'css';
     $( ".language" ).toggleClass( "hide" )
     $( ".tabcss" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
@@ -23,6 +25,7 @@ $(document).ready(function () {
     countDown();
   });
   $('.htmlinit').click(function () {
+    mode = 'html';
     $( ".language" ).toggleClass( "hide" )
     $( ".tabindex" ).toggleClass( "hide" )
     $( ".console" ).toggleClass( "hide" )
@@ -83,4 +86,40 @@ function speedPerMin(speed) {
     $('.nextrank').text("");
     $('.rankgif').attr('src', './images/korean.gif');
   }
+  statistics(speed);
 }
+
+// statistics modal local storage
+function statistics(speed) {
+  if (mode === "html") {
+    if (speed > localStorage.htmlSpeed) {
+    localStorage.removeItem("htmlSpeed");
+    localStorage.removeItem("htmlRank");
+    localStorage.setItem("htmlRank", $('.rank').text().slice(11));
+    localStorage.setItem("htmlSpeed", speed);
+    }
+  } else if (mode === "css") {
+    if (speed > localStorage.cssSpeed) {
+    localStorage.removeItem("cssSpeed");
+    localStorage.removeItem("cssRank");
+    localStorage.setItem("cssRank", $('.rank').text().slice(11));
+    localStorage.setItem("cssSpeed", speed);
+    }
+  } else if (mode === "js") {
+    if (speed > localStorage.jsSpeed) {
+    localStorage.removeItem("jsSpeed");
+    localStorage.removeItem("jsRank");
+    localStorage.setItem("jsRank", $('.rank').text().slice(11));
+    localStorage.setItem("jsSpeed", speed);
+    }
+  }
+}
+
+$('.htmlrank').text(localStorage.htmlRank);
+$('.htmlspeed').text(localStorage.htmlSpeed);
+$('.cssrank').text(localStorage.cssRank);
+$('.cssspeed').text(localStorage.cssSpeed);
+$('.jsrank').text(localStorage.jsRank);
+$('.jsspeed').text(localStorage.jsSpeed);
+
+var mode = "";

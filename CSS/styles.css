@@ -244,8 +244,18 @@ footer img {
 .restart {
   background: green;
 }
+#statsbutton {
+  background: green;
+  margin: 30px 0 0 60px;
+}
+#stats {
+
+}
 /*modal style*/
 .commonerror {
   position: relative;
   left: 50px;
+}
+.csscontainer{
+  margin: 30px 0;
 }
