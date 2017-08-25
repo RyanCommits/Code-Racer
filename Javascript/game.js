@@ -92,26 +92,14 @@ function speedPerMin(speed) {
 // statistics modal local storage
 function statistics(speed) {
   if (mode === "html") {
-    console.log(localStorage.htmlSpeed === undefined);
-    if (speed > localStorage.htmlSpeed) {
-    localStorage.removeItem("htmlSpeed");
-    localStorage.removeItem("htmlRank");
-    localStorage.setItem("htmlRank", $('.rank').text().slice(11));
-    localStorage.setItem("htmlSpeed", speed);
-    } else if (localStorage.htmlSpeed === undefined) {
+    if (speed > localStorage.htmlSpeed || localStorage.htmlSpeed === undefined) {
     localStorage.removeItem("htmlSpeed");
     localStorage.removeItem("htmlRank");
     localStorage.setItem("htmlRank", $('.rank').text().slice(11));
     localStorage.setItem("htmlSpeed", speed);
     }
   } else if (mode === "css") {
-    if (speed > localStorage.cssSpeed) {
-    localStorage.removeItem("cssSpeed");
-    localStorage.removeItem("cssRank");
-    localStorage.setItem("cssRank", $('.rank').text().slice(11));
-    localStorage.setItem("cssSpeed", speed);
-
-  } else if (localStorage.cssSpeed === undefined) {
+    if (speed > localStorage.cssSpeed || localStorage.cssSpeed === undefined) {
     localStorage.removeItem("cssSpeed");
     localStorage.removeItem("cssRank");
     localStorage.setItem("cssRank", $('.rank').text().slice(11));
@@ -119,17 +107,12 @@ function statistics(speed) {
 
     }
   } else if (mode === "js") {
-    if (speed > localStorage.jsSpeed) {
+    if (speed > localStorage.jsSpeed || localStorage.jsSpeed === undefined) {
     localStorage.removeItem("jsSpeed");
     localStorage.removeItem("jsRank");
     localStorage.setItem("jsRank", $('.rank').text().slice(11));
     localStorage.setItem("jsSpeed", speed);
-    } else if (localStorage.jsSpeed === undefined) {
-      localStorage.removeItem("jsSpeed");
-      localStorage.removeItem("jsRank");
-      localStorage.setItem("jsRank", $('.rank').text().slice(11));
-      localStorage.setItem("jsSpeed", speed);
-    }
+    } 
   }
 }
 
